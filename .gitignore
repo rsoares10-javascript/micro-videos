@@ -50,3 +50,6 @@ aspecto.log
 
 # UML files
 /uml
+
+# ts-node build file
+tsconfig.tsbuildinfo
