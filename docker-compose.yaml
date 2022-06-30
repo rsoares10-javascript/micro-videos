@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  app-serv:
+    build: .
+    container_name: micro-videos-typescript-app
+    volumes:
+      - .:/home/node/app
