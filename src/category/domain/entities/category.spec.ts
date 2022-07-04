@@ -20,6 +20,7 @@ describe("Category unit test", (): void => {
             name: "category title",
             description: "some description",
             isActive: false,
+            createdAt,
         });
         expect(category.props).toStrictEqual({
             name: "category title",
