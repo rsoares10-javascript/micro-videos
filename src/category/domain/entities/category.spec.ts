@@ -1,7 +1,27 @@
 import { omit } from "lodash";
 import { Category, CategoryProperties } from "./category";
+import { validate as uuidValidate } from "uuid";
 
 describe("Category unit test", (): void => {
+    test("id field", (): void => {
+        type CategoryData = { props: CategoryProperties; id?: string };
+        const data: CategoryData[] = [
+            { props: { name: "category name" } },
+            { props: { name: "category name" }, id: null },
+            { props: { name: "category name" }, id: undefined },
+            {
+                props: { name: "category name" },
+                id: "339b8bc5-8958-4166-b904-cde68cf6e655",
+            },
+        ];
+
+        data.forEach((i: CategoryData): void => {
+            let category = new Category(i.props);
+            expect(category.id).not.toBeNull();
+            expect(uuidValidate(category.id)).toBeTruthy();
+        });
+    });
+
     test("Test category constructor", (): void => {
         let category = new Category({ name: "category title" });
         let props: Pick<
