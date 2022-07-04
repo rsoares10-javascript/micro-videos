@@ -23,7 +23,7 @@ export class Category {
     get isActive(): boolean {
         return this.props.isActive;
     }
-    set isActive(value: boolean) {
+    private set isActive(value: boolean) {
         this.props.isActive = value ?? true;
     }
     get createdAt(): Date {

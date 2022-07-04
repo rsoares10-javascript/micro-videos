@@ -84,4 +84,21 @@ describe("Category unit test", (): void => {
         category = new Category({ name: "category name", createdAt });
         expect(category.createdAt).toBe(createdAt);
     });
+
+    test("Test category description setter", (): void => {
+        const category = new Category({ name: "category name" });
+        category["description"] = "category description";
+        expect(category.description).toBe("category description");
+        category["description"] = undefined;
+        expect(category.description).toBeNull();
+        category["description"] = null;
+        expect(category.description).toBeNull();
+    });
+
+    test("Test category isActive setter", (): void => {
+        const category = new Category({ name: "category name" });
+        expect(category.isActive).toBeTruthy();
+        category["isActive"] = false;
+        expect(category.isActive).toBeFalsy();
+    });
 });
